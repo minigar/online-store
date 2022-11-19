@@ -5,7 +5,6 @@ interface ImageProps {
   alt?: string;
   width?: number;
   height?: number;
-  maxWidth?: string;
   className?: string;
   onClick?: () => void;
 }

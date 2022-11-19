@@ -21,14 +21,14 @@ export class ProductsService {
     return product;
   }
 
-  async create(name: string, price: number, quantity: number) {
+  async create(name: string, price: number, quantity: number, imgUrl: string) {
     const product = await this.db.product.findFirst({ where: { name } });
 
     if (product) {
       throw new HttpError(`Product with name already exist`);
     }
 
-    await this.db.product.create({ data: { name, price, quantity } });
+    await this.db.product.create({ data: { name, price, quantity, imgUrl } });
 
     const createdProduct = await this.db.product.findFirst({
       where: { name },

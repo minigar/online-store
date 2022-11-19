@@ -11,4 +11,6 @@ export class ProductBodyModel {
 
   @IsNumber()
   quantity: number;
+
+  imgUrl: string;
 }

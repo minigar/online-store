@@ -13,7 +13,7 @@ model Product {
   price    Int
   quantity Int
 
-  imgUrl String @default("../../client/src/images/blackSquare.png")
+  imgUrl String @default("https://content2.rozetka.com.ua/goods/images/big/61936672.jpg")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -25,7 +25,7 @@ model CartProduct {
   price    Int
   quantity Int
 
-  imgUrl String @default("../../client/src/images/blackSquare.png")
+  imgUrl String @default("https://content2.rozetka.com.ua/goods/images/big/61936672.jpg")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
