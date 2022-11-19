@@ -21,6 +21,7 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
       <br />
       {product.name} <br /> {product.price}$ <br />
       quantity: {product.quantity}
+      <br />
       <Button>
         <div>Add to Cart</div>
       </Button>
