@@ -1,0 +1,5 @@
+#products-empty {
+    display: flex;
+    justify-content: center;
+    color: teal
+}

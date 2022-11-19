@@ -1,0 +1,22 @@
+.cart-products {
+    width: 80%;
+    margin: 25px;
+    margin-left: 10%;
+    padding: 10px;
+    border: 1px solid teal;
+    border-radius: 10px;
+    min-height: 600px;
+}
+
+.cart-title{
+    margin: 0 5px;
+    position: relative;
+    left: 10%;
+}
+
+.cart-empty {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    color: teal;
+}

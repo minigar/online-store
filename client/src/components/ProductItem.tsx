@@ -16,6 +16,7 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
         alt="black square"
         width={130}
         height={100}
+        maxWidth={'100%'}
         className="productImg"
       />{" "}
       <br />

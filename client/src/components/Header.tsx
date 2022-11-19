@@ -1,8 +1,8 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Image from "./UI/Image/Image";
 import Input from "./UI/Input/Input";
 import "./styles/Header.css";
-import Modal from "./UI/Modal/Modal";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   searchQuery: string;
@@ -10,14 +10,22 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
-  const [visible, setVisible] = useState<boolean>(false);
+  const navigate = useNavigate();
 
-  const openBasket = () => {
-    setVisible(true);
+  const toHome = () => {
+    navigate("/");
+  };
+
+  const toCart = () => {
+    navigate("/cart");
   };
 
   return (
-    <header>
+    <header className="header">
+      <h2 id="home-text" onClick={toHome}>
+        HOME
+      </h2>
+
       <Image
         src={require("../images/search.png")}
         alt="Search"
@@ -25,27 +33,22 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
         height={30}
         className="searchImg"
       />
+
       <Input
         placeholder="Serch the product by name..."
         id="search"
         value={searchQuery}
         onChange={(e: any) => setSearchQuery(e.target.value)}
       />
+
       <Image
-        src={require("../images/basket.jpg")}
+        src={require("../images/cart.jpg")}
         alt="Search"
         width={30}
         height={30}
-        className="basketImg"
-        onClick={openBasket}
+        className="cartImg"
+        onClick={toCart}
       />
-
-      <Modal visible={visible} setVisible={setVisible}>
-        <div>
-          Your Shopping Cart
-          <div className="cartItems"></div>
-        </div>
-      </Modal>
     </header>
   );
 };

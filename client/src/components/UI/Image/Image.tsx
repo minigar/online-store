@@ -3,8 +3,9 @@ import React, { FC } from "react";
 interface ImageProps {
   src: string;
   alt?: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
+  maxWidth?: string;
   className?: string;
   onClick?: () => void;
 }

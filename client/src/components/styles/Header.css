@@ -2,14 +2,22 @@
     position: relative;
     left: 20%;
     top: 9px;
+    max-width: 100%;
 }
 
-.basketImg {
+.cartImg {
     position: relative;
     top: 10px;
     left: 20%;
+    cursor: pointer;
+    max-width: 100%;
 }
 
-.cartItems {
-    
+#home-text {
+    position: relative;
+    top: 38.5px;
+    left: 14%;
+    cursor: pointer;
+    width: auto;
+    max-width: 10%;
 }

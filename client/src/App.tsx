@@ -1,16 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useRoutes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-import { useProducts } from "./components/hooks/useProducts";
-import List from "./components/List";
-import ProductItem from "./components/ProductItem";
 import { IProduct } from "./components/types/types";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
 
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const searchedProducts = useProducts(products, searchQuery);
 
   useEffect(() => {
     getProducts();
@@ -21,18 +20,24 @@ function App() {
     setProducts(res.data);
   }
 
+  const routes = useRoutes([
+    {
+      path: "/",
+      element: <Home products={products} searchQuery={searchQuery} />,
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
+    },
+  ]);
+
   return (
     <div className="App">
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <br />
       <hr />
       <br />
-      <List
-        items={searchedProducts}
-        renderItem={(product: IProduct) => (
-          <ProductItem product={product} key={product.id} />
-        )}
-      />
+      {routes}
     </div>
   );
 }
