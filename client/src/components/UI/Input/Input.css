@@ -1,0 +1,14 @@
+.input {
+    width: 40%;
+    padding: 5px 15px;
+    margin-left: 20%;
+    border: 1px solid teal;
+    background-color: rgb(73, 82, 110);
+    border-radius: 6px;
+    color: white;
+}
+
+.input:hover, .input:focus {
+    background-color: rgb(52, 44, 95);
+    border: 1px solid rgb(147, 163, 69);
+}

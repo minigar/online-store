@@ -17,23 +17,21 @@ export class ProductsController {
 
   @Get()
   async getList() {
-    return successResponse(await this.productsService.getList());
+    return await this.productsService.getList();
   }
 
   @Get(':id')
   async getById(@Param('id', ParseIntPipe) id: number) {
-    return successResponse(await this.productsService.getById(id));
+    return await this.productsService.getById(id);
   }
 
   @Post()
   async create(@Body() { name, price, quantity }: ProductBodyModel) {
-    return successResponse(
-      await this.productsService.create(name, price, quantity),
-    );
+    return await this.productsService.create(name, price, quantity);
   }
 
   @Delete(':id')
   async deleteById(@Param('id', ParseIntPipe) id: number) {
-    return successResponse(await this.productsService.deleteById(id));
+    return await this.productsService.deleteById(id);
   }
 }
