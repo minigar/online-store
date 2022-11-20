@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import "./styles/Cart.css";
 import List from "../components/List";
-import ProductItem from "../components/ProductItem";
+import CartProductItem from "../components/CartProductItem";
 import { IProduct } from "../components/types/types";
 import { api } from "../api";
 
@@ -14,6 +14,7 @@ const Cart: FC<CartProps> = ({cartProducts, setCartProducts}) => {
 
   useEffect(() => {
     getCartProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function getCartProducts() {
@@ -29,7 +30,7 @@ const Cart: FC<CartProps> = ({cartProducts, setCartProducts}) => {
           <List
             items={cartProducts}
             renderItem={(cartProduct: IProduct) => (
-              <ProductItem product={cartProduct} key={cartProduct.id} />
+              <CartProductItem cartProduct={cartProduct} key={cartProduct.id} />
             )}
           />
         ) : (
