@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRoutes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -8,26 +7,17 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 
 function App() {
-  const [products, setProducts] = useState<IProduct[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  async function getProducts() {
-    const res = await axios.get<IProduct[]>("http://localhost:3001/products");
-    setProducts(res.data);
-  }
+  const [cartProducts, setCartProducts] = useState<IProduct[]>([]);
 
   const routes = useRoutes([
     {
       path: "/",
-      element: <Home products={products} searchQuery={searchQuery} />,
+      element: <Home searchQuery={searchQuery} />,
     },
     {
       path: "/cart",
-      element: <Cart />,
+      element: <Cart cartProducts={cartProducts} setCartProducts={setCartProducts} />,
     },
   ]);
 

@@ -11,7 +11,7 @@ interface ProductItemProps {
 const ProductItem: FC<ProductItemProps> = ({ product }) => {
 
   const addToCart = () => {
-    return console.log(1);
+    console.log(1)
   }
 
   return (

@@ -1,16 +1,27 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useProducts } from "../components/hooks/useProducts";
 import List from "../components/List";
 import ProductItem from "../components/ProductItem";
 import { IProduct } from "../components/types/types";
-import './styles/Home.css'
+import "./styles/Home.css";
+import { api } from "../api";
 
 interface HomeProps {
-  products: IProduct[];
   searchQuery: string;
 }
 
-const Home: FC<HomeProps> = ({ products, searchQuery }) => {
+const Home: FC<HomeProps> = ({ searchQuery }) => {
+  const [products, setProducts] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    getProducts();
+  }, [products]);
+
+  async function getProducts() {
+    const res = await api.products.list();
+    setProducts(res.data);
+  }
+
   const searchedProducts = useProducts(products, searchQuery);
   return (
     <div>
