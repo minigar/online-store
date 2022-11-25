@@ -3,16 +3,16 @@ import { DatabaseService } from 'src/data/database.service';
 import HttpError from 'http-errors';
 
 @Injectable()
-export class ProductsService {
+export class CartProductsService {
   constructor(private readonly db: DatabaseService) {}
   async getList() {
-    const products = await this.db.product.findMany();
+    const cartProducts = await this.db.cartProduct.findMany();
 
-    return products;
+    return cartProducts;
   }
 
   async getById(id: number) {
-    const product = await this.db.product.findFirst({ where: { id } });
+    const product = await this.db.cartProduct.findFirst({ where: { id } });
 
     if (!product) {
       throw HttpError('Product not found');
@@ -21,23 +21,25 @@ export class ProductsService {
     return product;
   }
 
-  async create(name: string, price: number, quantity: number, imgUrl: string) {
-    const product = await this.db.product.findFirst({ where: { name } });
+  async create(name: string, price: number, imgUrl: string) {
+    const product = await this.db.cartProduct.findFirst({ where: { name } });
 
     if (product) {
       throw HttpError(`Product with name already exist`);
     }
 
-    await this.db.product.create({ data: { name, price, quantity, imgUrl } });
+    await this.db.cartProduct.create({
+      data: { name, price, imgUrl },
+    });
 
-    const createdProduct = await this.db.product.findFirst({
+    const createdProduct = await this.db.cartProduct.findFirst({
       where: { name },
     });
     return createdProduct;
   }
 
   async deleteById(id: number) {
-    await this.db.product.delete({ where: { id } });
+    await this.db.cartProduct.delete({ where: { id } });
     return;
   }
 }

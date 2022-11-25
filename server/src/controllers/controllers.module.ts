@@ -4,9 +4,10 @@ import { DatabaseModule } from '../data/database.module';
 import { HealthController } from './health.controller';
 import { ServiceModule } from 'src/services/services.module';
 import { ProductsController } from './product.controller';
+import { CartProductController } from './cart-products.controller';
 
 @Module({
   imports: [ConfigModule, DatabaseModule, ServiceModule],
-  controllers: [HealthController, ProductsController],
+  controllers: [HealthController, ProductsController, CartProductController],
 })
 export class ControllersModule {}

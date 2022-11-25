@@ -6,14 +6,10 @@ import Button from "./UI/Button/Button";
 
 interface ProductItemProps {
   product: IProduct;
+  addToCart: ({ id, name, price, imgUrl }: IProduct) => void;
 }
 
-const ProductItem: FC<ProductItemProps> = ({ product }) => {
-
-  const addToCart = () => {
-    console.log(1)
-  }
-
+const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
   return (
     <div className="product">
       <Image
@@ -27,7 +23,16 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
       {product.name} <br /> {product.price}$ <br />
       quantity: {product.quantity}
       <br />
-      <Button onClick={addToCart}>
+      <Button
+        onClick={() => {
+          addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            imgUrl: product.imgUrl,
+          });
+        }}
+      >
         <div>Add to Cart</div>
       </Button>
     </div>

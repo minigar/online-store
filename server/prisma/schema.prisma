@@ -23,7 +23,6 @@ model CartProduct {
   id       Int    @id @default(autoincrement())
   name     String @unique
   price    Int
-  quantity Int
 
   imgUrl String @default("https://content2.rozetka.com.ua/goods/images/big/61936672.jpg")
 

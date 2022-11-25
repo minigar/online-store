@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { IProduct } from "./types/types";
 import Image from "./UI/Image/Image";
-import "./styles/ProductItem.css";
+import "./styles/CartProductItem.css";
 import Button from "./UI/Button/Button";
 
 interface ProductItemProps {
@@ -11,7 +11,7 @@ interface ProductItemProps {
 const ProductItem: FC<ProductItemProps> = ({ cartProduct }) => {
 
   const removeFromCart = () => {
-    return console.log(1);
+    return console.log(2);
   }
 
   return (
@@ -22,7 +22,7 @@ const ProductItem: FC<ProductItemProps> = ({ cartProduct }) => {
         width={130}
         height={100}
         className="cart-productImg"
-      />{" "}
+      />
       <br />
       {cartProduct.name} <br /> {cartProduct.price}$ <br />
       quantity: {cartProduct.quantity}

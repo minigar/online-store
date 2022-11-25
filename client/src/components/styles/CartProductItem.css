@@ -1,0 +1,7 @@
+.cart-product {
+    margin: 15px;
+    padding: 5px;
+    border-right: 1px solid gray;
+    width: 10%;
+    display: inline-block;
+}
