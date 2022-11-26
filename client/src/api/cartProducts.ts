@@ -1,16 +1,29 @@
-import { IProduct } from "../components/types/types";
+import { CreteProduct, IProduct } from "../components/types/types";
 import { http } from "./http";
 
 export const cartProducts = {
   list: async () => await http.get<IProduct[]>(`/cart-products`),
-  create: async ({ id, name, price, imgUrl }: IProduct) =>
-  await http
-    .post<IProduct>(`/cart-products`, {
-      id,
+
+  getById: async (id: number) =>
+    await http.get<IProduct>(`/cart-products/${id}`),
+
+  create: async ({ name, price, imgUrl }: CreteProduct) =>
+    await http
+      .post<IProduct>(`/cart-products`, {
+        name,
+        price,
+        imgUrl,
+      })
+      .catch((err) => console.error(err)),
+
+  updateById: async ({ id, name, price, quantity, imgUrl }: IProduct) =>
+    await http.put(`/cart-products/${id}`, {
       name,
       price,
+      quantity,
       imgUrl,
-    })
-    .catch((err) => console.error(err)),
-  delete: async ( id: number ) => await http.delete<IProduct>(`/cart-products/${id}`)
+    }),
+
+  deleteById: async (id: number) =>
+    await http.delete<IProduct>(`/cart-products/${id}`),
 };

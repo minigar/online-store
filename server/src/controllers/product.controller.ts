@@ -6,6 +6,7 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 import { ProductBodyModel } from 'src/models/product';
 import { ProductsService } from 'src/services/products.service';
@@ -22,6 +23,20 @@ export class ProductsController {
   @Get(':id')
   async getById(@Param('id', ParseIntPipe) id: number) {
     return await this.productsService.getById(id);
+  }
+
+  @Put(':id')
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() { name, price, quantity, imgUrl }: ProductBodyModel,
+  ) {
+    return await this.productsService.updateById(
+      id,
+      name,
+      price,
+      quantity,
+      imgUrl,
+    );
   }
 
   @Post()

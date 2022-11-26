@@ -10,7 +10,7 @@ interface CartProps{
   cartProducts: IProduct[]
 }
 
-const Cart: FC<CartProps> = ({cartProducts, setCartProducts}) => {
+const Cart: FC<CartProps> = ({cartProducts, setCartProducts }) => {
 
   useEffect(() => {
     getCartProducts();
@@ -30,7 +30,7 @@ const Cart: FC<CartProps> = ({cartProducts, setCartProducts}) => {
           <List
             items={cartProducts}
             renderItem={(cartProduct: IProduct) => (
-              <CartProductItem cartProduct={cartProduct} key={cartProduct.id} />
+              <CartProductItem cartProduct={cartProduct} key={cartProduct.id}/>
             )}
           />
         ) : (

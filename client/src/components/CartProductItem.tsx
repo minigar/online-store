@@ -3,7 +3,7 @@ import { IProduct } from "./types/types";
 import Image from "./UI/Image/Image";
 import "./styles/CartProductItem.css";
 import Button from "./UI/Button/Button";
-import { deleteById } from "../api/requests/cartProducts";
+import { deleteById } from "../api/helpers/cartProducts";
 
 interface ProductItemProps {
   cartProduct: IProduct;

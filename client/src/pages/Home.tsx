@@ -10,7 +10,7 @@ interface HomeProps {
   searchQuery: string;
   products: IProduct[];
   setProducts: (value: IProduct[]) => void;
-  addToCart: ({ id, name, price, imgUrl }: IProduct) => void;
+  addToCart: ({ id, name, price, quantity, imgUrl }: IProduct) => void;
 }
 
 const Home: FC<HomeProps> = ({
@@ -19,15 +19,15 @@ const Home: FC<HomeProps> = ({
   setProducts,
   addToCart,
 }) => {
-  useEffect(() => {
-    getProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [products]);
-
   async function getProducts() {
     const res = await api.products.list();
     setProducts(res.data);
   }
+
+  useEffect(() => {
+    getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
 
   const searchedProducts = useProducts(products, searchQuery);
   return (
@@ -42,6 +42,7 @@ const Home: FC<HomeProps> = ({
                   id: product.id,
                   name: product.name,
                   price: product.price,
+                  quantity: product.quantity || 1,
                   imgUrl: product.imgUrl,
                 })
               }

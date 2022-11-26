@@ -21,6 +21,30 @@ export class ProductsService {
     return product;
   }
 
+  async updateById(
+    id: number,
+    name: string,
+    price: number,
+    quantity: number,
+    imgUrl: string,
+  ) {
+    const product = await this.db.product.findFirst({ where: { id } });
+
+    if (!product) {
+      throw HttpError(`Product not found`);
+    }
+    await this.db.product.update({
+      where: { id },
+      data: { name, price, quantity, imgUrl },
+    });
+
+    const updatedProduct = await this.db.product.findFirst({
+      where: { name },
+    });
+
+    return updatedProduct;
+  }
+
   async create(name: string, price: number, quantity: number, imgUrl: string) {
     const product = await this.db.product.findFirst({ where: { name } });
 

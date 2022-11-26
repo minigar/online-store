@@ -6,7 +6,7 @@ import Button from "./UI/Button/Button";
 
 interface ProductItemProps {
   product: IProduct;
-  addToCart: ({ id, name, price, imgUrl }: IProduct) => void;
+  addToCart: ({ id, name, price, quantity, imgUrl }: IProduct) => void;
 }
 
 const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
@@ -18,7 +18,7 @@ const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
         width={130}
         height={100}
         className="productImg"
-      />{" "}
+      />
       <br />
       {product.name} <br /> {product.price}$ <br />
       quantity: {product.quantity}
@@ -29,6 +29,7 @@ const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
             id: product.id,
             name: product.name,
             price: product.price,
+            quantity: product.quantity || 1,
             imgUrl: product.imgUrl,
           });
         }}
