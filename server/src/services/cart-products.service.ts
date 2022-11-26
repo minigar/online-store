@@ -39,6 +39,7 @@ export class CartProductsService {
   }
 
   async deleteById(id: number) {
+    // await this.db.cartProduct.deleteMany({});
     await this.db.cartProduct.delete({ where: { id } });
     return;
   }

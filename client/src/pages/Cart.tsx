@@ -15,7 +15,7 @@ const Cart: FC<CartProps> = ({cartProducts, setCartProducts}) => {
   useEffect(() => {
     getCartProducts();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [cartProducts]);
 
   async function getCartProducts() {
     const res = await api.cartProducts.list();

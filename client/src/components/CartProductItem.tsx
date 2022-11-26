@@ -3,6 +3,7 @@ import { IProduct } from "./types/types";
 import Image from "./UI/Image/Image";
 import "./styles/CartProductItem.css";
 import Button from "./UI/Button/Button";
+import { deleteById } from "../api/requests/cartProducts";
 
 interface ProductItemProps {
   cartProduct: IProduct;
@@ -10,8 +11,8 @@ interface ProductItemProps {
 
 const ProductItem: FC<ProductItemProps> = ({ cartProduct }) => {
 
-  const removeFromCart = () => {
-    return console.log(2);
+  const removeFromCart = (id: number) => {
+    deleteById(id)
   }
 
   return (
@@ -27,7 +28,7 @@ const ProductItem: FC<ProductItemProps> = ({ cartProduct }) => {
       {cartProduct.name} <br /> {cartProduct.price}$ <br />
       quantity: {cartProduct.quantity}
       <br />
-      <Button onClick={removeFromCart}>
+      <Button onClick={() => removeFromCart(cartProduct.id)}>
         <div>Remove from Cart</div>
       </Button>
     </div>

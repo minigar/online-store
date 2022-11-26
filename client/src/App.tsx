@@ -5,19 +5,15 @@ import Header from "./components/Header";
 import { IProduct } from "./components/types/types";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-import { api } from "./api";
+import { create } from "./api/requests/cartProducts";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [cartProducts, setCartProducts] = useState<IProduct[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
 
-  async function createCartProduct({ id, name, price, imgUrl }: IProduct) {
-    return await api.cartProducts.product({ id, name, price, imgUrl });
-  }
-
   const addToCart = ({ id, name, price, imgUrl }: IProduct) => {
-    createCartProduct({ id, name, price, imgUrl });
+    create({ id, name, price, imgUrl });
   };
 
   const routes = useRoutes([
