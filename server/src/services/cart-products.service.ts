@@ -12,20 +12,22 @@ export class CartProductsService {
   }
 
   async getById(id: number) {
-    const product = await this.db.cartProduct.findFirst({ where: { id } });
+    const cartProduct = await this.db.cartProduct.findFirst({ where: { id } });
 
-    if (!product) {
+    if (!cartProduct) {
       throw HttpError('Product not found');
     }
 
-    return product;
+    return cartProduct;
   }
 
   async create(name: string, price: number, quantity: number, imgUrl: string) {
-    const product = await this.db.cartProduct.findFirst({ where: { name } });
+    const cartProduct = await this.db.cartProduct.findFirst({
+      where: { name },
+    });
 
-    if (product) {
-      throw HttpError(`Product with name already exist`);
+    if (cartProduct) {
+      throw HttpError(`Product with this name already exist!`);
     }
 
     await this.db.cartProduct.create({

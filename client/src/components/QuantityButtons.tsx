@@ -27,14 +27,16 @@ const QuantityButtons: FC<QuantityButtonsProps> = ({
       <Button onClick={addQuantity}>+</Button>
       <Button
         onClick={() => {
-          addToCart({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            quantity,
-            imgUrl: product.imgUrl,
-          });
-        }}
+            addToCart({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              quantity,
+              imgUrl: product.imgUrl,
+            })
+            mapAddtoCartButton()
+          }
+        }
       >
         Add
       </Button>

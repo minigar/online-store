@@ -13,7 +13,7 @@ function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   const addToCart = async ({ id, name, price, quantity, imgUrl }: IProduct) => {
-    await api.cartProducts.create({ name, price, quantity, imgUrl });
+    return await api.cartProducts.create({ name, price, quantity, imgUrl });
   };
 
   const routes = useRoutes([
