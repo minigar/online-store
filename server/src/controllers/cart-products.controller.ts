@@ -14,10 +14,7 @@ import { ProductsService } from 'src/services/products.service';
 
 @Controller('cart-products')
 export class CartProductController {
-  constructor(
-    private readonly ProductsService: ProductsService,
-    private readonly cartProductsService: CartProductsService,
-  ) {}
+  constructor(private readonly cartProductsService: CartProductsService) {}
 
   @Get()
   async getList() {
@@ -30,8 +27,8 @@ export class CartProductController {
   }
 
   @Post()
-  async create(@Body() { name, price, imgUrl }: ProductBodyModel) {
-    return await this.cartProductsService.create(name, price, imgUrl);
+  async create(@Body() { name, price, quantity, imgUrl }: ProductBodyModel) {
+    return await this.cartProductsService.create(name, price, quantity, imgUrl);
   }
 
   @Delete(':id')

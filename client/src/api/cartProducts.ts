@@ -7,11 +7,12 @@ export const cartProducts = {
   getById: async (id: number) =>
     await http.get<IProduct>(`/cart-products/${id}`),
 
-  create: async ({ name, price, imgUrl }: CreteProduct) =>
+  create: async ({ name, price, quantity, imgUrl }: CreteProduct) =>
     await http
       .post<IProduct>(`/cart-products`, {
         name,
         price,
+        quantity,
         imgUrl,
       })
       .catch((err) => console.error(err)),

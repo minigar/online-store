@@ -1,27 +1,35 @@
-import React, { FC } from 'react'
-import classes from "./Modal.module.css"
+import React, { FC } from "react";
+import classes from "./Modal.module.css";
 
 interface ModalProps {
-    children: JSX.Element;
-    visible: boolean;
-    setVisible: (value: boolean) => void;
+  children?: React.ReactNode[] | React.ReactNode;
+  visible: boolean;
+  setVisible: (value: boolean) => void;
+  style?: React.CSSProperties;
 }
 
-const Modal: FC<ModalProps>= ({children, visible, setVisible}) => {
+const Modal: FC<ModalProps> = ({ children, visible, setVisible, style }) => {
+  const rootClasses = [classes.modal];
 
-  const rootClasses = [classes.modal]
-
-  if(visible) {
-    rootClasses.push(classes.active)
+  if (visible) {
+    rootClasses.push(classes.active);
   }
 
   return (
-    <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
-        <div className={classes.modalContent} onClick={(e) => e.stopPropagation()}>
+    <div className={rootClasses.join(" ")} onClick={() => setVisible(false)}>
+      {visible === true ? (
+        <div
+          style={style}
+          className={classes.modalContent}
+          onClick={(e) => e.stopPropagation()}
+        >
           {children}
         </div>
+      ) : (
+        <div></div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

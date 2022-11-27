@@ -19,6 +19,7 @@ const Home: FC<HomeProps> = ({
   setProducts,
   addToCart,
 }) => {
+
   async function getProducts() {
     const res = await api.products.list();
     setProducts(res.data);
@@ -37,14 +38,8 @@ const Home: FC<HomeProps> = ({
           items={searchedProducts}
           renderItem={(product: IProduct) => (
             <ProductItem
-              addToCart={() =>
-                addToCart({
-                  id: product.id,
-                  name: product.name,
-                  price: product.price,
-                  quantity: product.quantity || 1,
-                  imgUrl: product.imgUrl,
-                })
+              addToCart={({ id, name, price, quantity, imgUrl }: IProduct) =>
+                addToCart({ id, name, price, quantity, imgUrl })
               }
               product={product}
               key={product.id}

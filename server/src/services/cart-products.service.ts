@@ -21,7 +21,7 @@ export class CartProductsService {
     return product;
   }
 
-  async create(name: string, price: number, imgUrl: string) {
+  async create(name: string, price: number, quantity: number, imgUrl: string) {
     const product = await this.db.cartProduct.findFirst({ where: { name } });
 
     if (product) {
@@ -29,7 +29,7 @@ export class CartProductsService {
     }
 
     await this.db.cartProduct.create({
-      data: { name, price, imgUrl },
+      data: { name, price, quantity, imgUrl },
     });
 
     const createdProduct = await this.db.cartProduct.findFirst({

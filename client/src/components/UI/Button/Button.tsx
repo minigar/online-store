@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import "./Button.css";
 
 interface ButtonProps {
-  children?: JSX.Element;
+  children?: React.ReactNode[] | React.ReactNode;
   onClick?: (event: any) => void;
+  style?: React.CSSProperties
 }
 
 const Button: FC<ButtonProps> = ({ children, ...props }) => {
