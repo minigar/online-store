@@ -6,6 +6,7 @@ import { IProduct } from "./components/types/types";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import { api } from "./api";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -36,6 +37,12 @@ function App() {
         <Cart cartProducts={cartProducts} setCartProducts={setCartProducts} />
       ),
     },
+    {
+      path: "/admin-panel",
+      element: (
+        <AdminPanel />
+      ),
+    }
   ]);
 
   return (

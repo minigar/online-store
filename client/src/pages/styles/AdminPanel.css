@@ -1,0 +1,25 @@
+#create-product-text{
+    position: relative;
+    right: 6%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 5%;
+}
+
+.crete-product input {
+    position: relative;
+    left: 28%;
+    padding: 7px;
+    margin-left: 10px;
+    width: 30%;
+}
+
+
+.crete-product button {
+    position: relative;
+    left: 28%;
+    padding: 6px;
+    margin-left: 10px;
+    width: 4%;
+    border-radius: 6px;
+}

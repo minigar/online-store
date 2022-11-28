@@ -12,6 +12,10 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
   const navigate = useNavigate();
 
+  const toApminPanel = () => {
+    navigate("/admin-panel")
+  }
+
   const toHome = () => {
     navigate("/");
   };
@@ -24,6 +28,10 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
     <header className="header">
       <h2 id="home-text" onClick={toHome}>
         HOME
+      </h2>
+
+      <h2 id="amdin-panel-text" onClick={toApminPanel}>
+        Admin Panel
       </h2>
 
       <Image
@@ -49,6 +57,7 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
         className="cartImg"
         onClick={toCart}
       />
+
     </header>
   );
 };

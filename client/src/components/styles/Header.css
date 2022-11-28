@@ -8,7 +8,7 @@
 .cartImg {
     position: relative;
     top: 10px;
-    left: 20%;
+    left: 10%;
     cursor: pointer;
     max-width: 100%;
 }
@@ -17,6 +17,15 @@
     position: relative;
     top: 38.5px;
     left: 14%;
+    cursor: pointer;
+    width: auto;
+    max-width: 10%;
+}
+
+#amdin-panel-text {
+    position: absolute;
+    top: 38.5px;
+    left: 80%;
     cursor: pointer;
     width: auto;
     max-width: 10%;

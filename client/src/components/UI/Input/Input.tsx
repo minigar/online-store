@@ -6,6 +6,7 @@ interface InputProps {
   placeholder?: string
   id?: string;
   value?: any;
+  style?: React.CSSProperties
   onChange?: (event: any) => void
 };
 
