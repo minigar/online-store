@@ -30,7 +30,6 @@ const AdminPanel: FC<AdminPanelProps> = ({ createProductByAdmin }) => {
         value={productName}
         onChange={(event) => {
           handleChange(event, setProductName);
-          console.log(productName);
         }}
       />
       <br />
@@ -70,6 +69,11 @@ const AdminPanel: FC<AdminPanelProps> = ({ createProductByAdmin }) => {
               productImgUrl ||
               "https://content2.rozetka.com.ua/goods/images/big/61936672.jpg",
           });
+
+          setProductName('')
+          setProductImgUrl('')
+          setProductPrice('')
+          setProductQuantity('')
         }}
       >
         Create{" "}
