@@ -1,4 +1,4 @@
-import { CreteProduct, IProduct } from "../components/types/types";
+import { CreateProduct, IProduct } from "../components/types/types";
 import { http } from "./http";
 
 export const cartProducts = {
@@ -7,7 +7,7 @@ export const cartProducts = {
   getById: async (id: number) =>
     await http.get<IProduct>(`/cart-products/${id}`),
 
-  create: async ({ name, price, quantity, imgUrl }: CreteProduct) =>
+  create: async ({ name, price, quantity, imgUrl }: CreateProduct) =>
     await http
       .post<IProduct>(`/cart-products`, {
         name,

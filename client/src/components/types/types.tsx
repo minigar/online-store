@@ -5,7 +5,7 @@ export interface IProduct {
     quantity?: number;
     imgUrl: string;
 }
-export interface CreteProduct {
+export interface CreateProduct {
     name: string;
     price: number;
     quantity?: number;

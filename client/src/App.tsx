@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRoutes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-import { IProduct } from "./components/types/types";
+import { IProduct, CreateProduct } from "./components/types/types";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import { api } from "./api";
@@ -16,6 +16,12 @@ function App() {
   const addToCart = async ({ id, name, price, quantity, imgUrl }: IProduct) => {
     return await api.cartProducts.create({ name, price, quantity, imgUrl });
   };
+
+  const createProductByAdmin = async({name, price, quantity, imgUrl}: CreateProduct) => {
+    if (name || price !== undefined) {
+      return await api.products.create({ name, price, quantity, imgUrl });
+    }
+  }
 
   const routes = useRoutes([
     {
@@ -40,7 +46,7 @@ function App() {
     {
       path: "/admin-panel",
       element: (
-        <AdminPanel />
+        <AdminPanel createProductByAdmin={createProductByAdmin} />
       ),
     }
   ]);
