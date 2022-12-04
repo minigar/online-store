@@ -14,4 +14,6 @@ export const products = {
     })
     .catch((err) => console.error(err)),
 
+  deleteById: async (id: number) =>
+    await http.delete<IProduct>(`/products/${id}`),
 };

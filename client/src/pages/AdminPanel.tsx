@@ -3,9 +3,15 @@ import Button from "../components/UI/Button/Button";
 import Input from "../components/UI/Input/Input";
 import "./styles/AdminPanel.css";
 import { CreateProduct } from "../components/types/types";
+import { deleteById } from "../api/helpers/products";
 
 interface AdminPanelProps {
-  createProductByAdmin: ({ name, price, quantity, imgUrl }: CreateProduct) => void;
+  createProductByAdmin: ({
+    name,
+    price,
+    quantity,
+    imgUrl,
+  }: CreateProduct) => void;
 }
 
 const AdminPanel: FC<AdminPanelProps> = ({ createProductByAdmin }) => {
@@ -13,6 +19,7 @@ const AdminPanel: FC<AdminPanelProps> = ({ createProductByAdmin }) => {
   const [productImgUrl, setProductImgUrl] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productQuantity, setProductQuantity] = useState("");
+  const [productId, setProductId] = useState("");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -70,14 +77,41 @@ const AdminPanel: FC<AdminPanelProps> = ({ createProductByAdmin }) => {
               "https://content2.rozetka.com.ua/goods/images/big/61936672.jpg",
           });
 
-          setProductName('')
-          setProductImgUrl('')
-          setProductPrice('')
-          setProductQuantity('')
+          setProductName("");
+          setProductImgUrl("");
+          setProductPrice("");
+          setProductQuantity("");
         }}
       >
         Create{" "}
       </Button>
+
+      <br />
+      <br />
+      <br />
+      <hr />
+      <br />
+
+      <div>
+        <h3 id="delete-product-text">Delete Product by Id</h3>
+
+        <Input
+          value={productId}
+          onChange={(event) => {
+            handleChange(event, setProductId);
+          }}
+          placeholder="Enter the id"
+          style={{ maxWidth: "20%" }}
+        ></Input>
+        <Button
+          onClick={() => {
+            deleteById(Number(productId));
+            setProductId("");
+          }}
+        >
+          Delete
+        </Button>
+      </div>
     </div>
   );
 };

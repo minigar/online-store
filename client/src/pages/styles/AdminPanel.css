@@ -3,7 +3,7 @@
     right: 6%;
     margin: 0 auto;
     margin-bottom: 10px;
-    width: 5%;
+    width: 10%;
 }
 
 .crete-product input {
@@ -23,4 +23,13 @@
     margin-left: 10px;
     width: 4%;
     border-radius: 6px;
+}
+
+#delete-product-text{
+    position: relative;
+    right: 5%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 15%;
 }

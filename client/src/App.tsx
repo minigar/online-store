@@ -17,11 +17,16 @@ function App() {
     return await api.cartProducts.create({ name, price, quantity, imgUrl });
   };
 
-  const createProductByAdmin = async({name, price, quantity, imgUrl}: CreateProduct) => {
+  const createProductByAdmin = async ({
+    name,
+    price,
+    quantity,
+    imgUrl,
+  }: CreateProduct) => {
     if (name || price !== undefined) {
       return await api.products.create({ name, price, quantity, imgUrl });
     }
-  }
+  };
 
   const routes = useRoutes([
     {
@@ -45,10 +50,8 @@ function App() {
     },
     {
       path: "/admin-panel",
-      element: (
-        <AdminPanel createProductByAdmin={createProductByAdmin} />
-      ),
-    }
+      element: <AdminPanel createProductByAdmin={createProductByAdmin} />,
+    },
   ]);
 
   return (
