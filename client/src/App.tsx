@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import { api } from "./api";
 import AdminPanel from "./pages/AdminPanel";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,6 +53,10 @@ function App() {
       path: "/admin-panel",
       element: <AdminPanel createProductByAdmin={createProductByAdmin} />,
     },
+    {
+      path: '*',
+      element: <NotFound />
+    }
   ]);
 
   return (

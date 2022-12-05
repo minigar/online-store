@@ -26,7 +26,6 @@ const AdminPanel: FC<AdminPanelProps> = ({ createProductByAdmin }) => {
     setValue: (value: any) => void
   ) => {
     setValue(event.target.value);
-    // console.log(event.target.value);
   };
 
   return (
