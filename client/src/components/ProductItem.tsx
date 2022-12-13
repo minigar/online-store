@@ -5,6 +5,7 @@ import "./styles/ProductItem.css";
 import Button from "./UI/Button/Button";
 import Modal from "./UI/Modal/Modal";
 import QuantityButtons from "./QuantityButtons";
+import { useNavigate } from "react-router-dom";
 
 interface ProductItemProps {
   product: IProduct;
@@ -15,6 +16,12 @@ const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
   const [visibleAddToCart, setVisibleAddToCart] = useState(true);
   const [visibleQauntity, setVisibleQuantity] = useState(false);
   const [quantity, setQuantity] = useState(1);
+
+  const navigate = useNavigate();
+
+  const toProductPage = (id: number) => {
+    navigate(`/products/${id}`);
+  };
 
   const addQuantity = () => {
     setQuantity(quantity + 1);
@@ -44,10 +51,19 @@ const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
         width={130}
         height={100}
         className="productImg"
+        onClick={() => {
+          toProductPage(product.id);
+        }}
       />
       <br />
-      {product.name} <br /> {product.price}$ <br />
-      quantity: {product.quantity}
+      <div id="product__details"
+        onClick={() => {
+          toProductPage(product.id);
+        }}
+      >
+        {product.name} <br /> {product.price}$ <br />
+        quantity: {product.quantity}
+      </div>
       <br />
       <Modal
         style={{ position: "relative", right: "30px" }}

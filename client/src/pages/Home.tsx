@@ -19,7 +19,6 @@ const Home: FC<HomeProps> = ({
   setProducts,
   addToCart,
 }) => {
-
   async function getProducts() {
     const res = await api.products.list();
     setProducts(res.data);

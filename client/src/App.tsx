@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import { api } from "./api";
 import AdminPanel from "./pages/AdminPanel";
+import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       return await api.products.create({ name, price, quantity, imgUrl });
     }
   };
+
 
   const routes = useRoutes([
     {
@@ -52,6 +54,10 @@ function App() {
     {
       path: "/admin-panel",
       element: <AdminPanel createProductByAdmin={createProductByAdmin} />,
+    },
+    {
+      path: `/products/:id`,
+      element: <ProductPage />
     },
     {
       path: '*',

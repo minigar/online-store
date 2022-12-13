@@ -6,3 +6,9 @@
     display: inline-block;
     margin-left: 20px;
 }
+
+#product__details:hover{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
