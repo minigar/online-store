@@ -5,14 +5,14 @@ export const products = {
   list: async () => await http.get<IProduct[]>("/products"),
   getById: async (id: number) => await http.get<IProduct>(`/products/${id}`),
   create: async ({ name, price, quantity, imgUrl }: CreateProduct) =>
-  await http
-    .post<IProduct>(`/products`, {
-      name,
-      price,
-      quantity,
-      imgUrl,
-    })
-    .catch((err) => console.error(err)),
+    await http
+      .post<IProduct>(`/products`, {
+        name,
+        price,
+        quantity,
+        imgUrl,
+      })
+      .catch((err) => console.error(err)),
 
   deleteById: async (id: number) =>
     await http.delete<IProduct>(`/products/${id}`),

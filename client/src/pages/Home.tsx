@@ -31,7 +31,7 @@ const Home: FC<HomeProps> = ({
 
   const searchedProducts = useProducts(products, searchQuery);
   return (
-    <div>
+    <div className="home">
       {searchedProducts.length ? (
         <List
           items={searchedProducts}
@@ -46,7 +46,7 @@ const Home: FC<HomeProps> = ({
           )}
         />
       ) : (
-        <h2 id="products-empty">Have no products yet</h2>
+        <h2 className="home__empty">Products not found!</h2>
       )}
     </div>
   );

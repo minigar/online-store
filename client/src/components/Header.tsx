@@ -13,8 +13,8 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
   const navigate = useNavigate();
 
   const toApminPanel = () => {
-    navigate("/admin-panel")
-  }
+    navigate("/admin-panel");
+  };
 
   const toHome = () => {
     navigate("/");
@@ -26,11 +26,11 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
 
   return (
     <header className="header">
-      <h2 id="home-text" onClick={toHome}>
+      <h2 className="header__home__text" onClick={toHome}>
         HOME
       </h2>
 
-      <h2 id="amdin-panel-text" onClick={toApminPanel}>
+      <h2 className="header__amdin__panel__text" onClick={toApminPanel}>
         Admin Panel
       </h2>
 
@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
         alt="Search"
         width={30}
         height={30}
-        className="searchImg"
+        className="header__search__img"
       />
 
       <Input
@@ -51,13 +51,12 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
 
       <Image
         src={require("../images/cart.jpg")}
-        alt="Search"
+        alt="Cart"
         width={30}
         height={30}
-        className="cartImg"
+        className="header__cart__img"
         onClick={toCart}
       />
-
     </header>
   );
 };

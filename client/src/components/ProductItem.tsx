@@ -47,10 +47,10 @@ const ProductItem: FC<ProductItemProps> = ({ product, addToCart }) => {
     <div className="product">
       <Image
         src={product.imgUrl}
-        alt="black square"
+        alt="product image"
         width={130}
         height={100}
-        className="productImg"
+        className="product__img"
         onClick={() => {
           toProductPage(product.id);
         }}

@@ -30,7 +30,6 @@ function App() {
     }
   };
 
-
   const routes = useRoutes([
     {
       path: "/",
@@ -57,12 +56,12 @@ function App() {
     },
     {
       path: `/products/:id`,
-      element: <ProductPage />
+      element: <ProductPage />,
     },
     {
-      path: '*',
-      element: <NotFound />
-    }
+      path: "*",
+      element: <NotFound />,
+    },
   ]);
 
   return (

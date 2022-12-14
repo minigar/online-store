@@ -7,7 +7,7 @@ interface LabelProps {
 }
 
 const Label: FC<LabelProps> = ({ htmlFor, children, style }) => {
-  return <label htmlFor="" style={style}>{children}</label>;
+  return <label htmlFor={htmlFor} style={style}>{children}</label>;
 };
 
 export default Label;

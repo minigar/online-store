@@ -20,7 +20,7 @@ const Modal: FC<ModalProps> = ({ children, visible, setVisible, style }) => {
       {visible === true ? (
         <div
           style={style}
-          className={classes.modalContent}
+          className={classes.modal__content}
           onClick={(e) => e.stopPropagation()}
         >
           {children}

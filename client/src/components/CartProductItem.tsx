@@ -16,13 +16,13 @@ const ProductItem: FC<ProductItemProps> = ({ cartProduct }) => {
   }
 
   return (
-    <div className="cart-product">
+    <div className="cart__product">
       <Image
         src={cartProduct.imgUrl}
-        alt="black square"
+        alt="cart product image"
         width={130}
         height={100}
-        className="cart-productImg"
+        className="cart__product__img"
       />
       <br />
       {cartProduct.name} <br /> {cartProduct.price}$ <br />

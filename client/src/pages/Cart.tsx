@@ -24,8 +24,8 @@ const Cart: FC<CartProps> = ({cartProducts, setCartProducts }) => {
 
   return (
     <div className="cart">
-      <h2 className="cart-title">Your Shopping Cart</h2>
-      <div className="cart-products">
+      <h2 className="cart__title">Your Shopping Cart</h2>
+      <div className="cart__products">
         {cartProducts.length ? (
           <List
             items={cartProducts}
@@ -34,7 +34,7 @@ const Cart: FC<CartProps> = ({cartProducts, setCartProducts }) => {
             )}
           />
         ) : (
-          <div className="cart-empty">
+          <div className="cart__empty">
             <h3>Your Shopping Cart is empty</h3>
             <h4>But you always can change it!</h4>
           </div>

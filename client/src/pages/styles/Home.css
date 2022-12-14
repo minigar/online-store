@@ -1,4 +1,4 @@
-#products-empty {
+.home__empty {
     display: flex;
     justify-content: center;
     color: teal

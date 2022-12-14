@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api";
 import { IProduct } from "../components/types/types";
+import Image from '../components/UI/Image/Image';
 interface ProductPageProps {}
 
 const ProductPage: FC<ProductPageProps> = () => {
@@ -21,7 +22,12 @@ const ProductPage: FC<ProductPageProps> = () => {
 
   return (
     <div className="product__page">
-      {product?.id}
+      <Image
+        src={product?.imgUrl}
+        alt="product image"
+        width={350}
+        height={350}
+      />
       {product?.name}
       {product?.price}
       {product?.quantity}

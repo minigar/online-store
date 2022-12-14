@@ -1,6 +1,6 @@
 /* .modal{} */
 
-.modalContent{
+.modal__content{
     padding: 25px;
     border-radius: 10px;
     min-width: 250px

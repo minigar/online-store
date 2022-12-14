@@ -1,4 +1,11 @@
-.cart-products {
+.cart__title{
+    width: 20%;
+    margin: 0 5px;
+    position: relative;
+    left: 10%;
+}
+
+.cart__products {
     width: 80%;
     margin: 25px;
     margin-left: 10%;
@@ -8,14 +15,7 @@
     min-height: 600px;
 }
 
-.cart-title{
-    width: 20%;
-    margin: 0 5px;
-    position: relative;
-    left: 10%;
-}
-
-.cart-empty {
+.cart__empty {
     position: absolute;
     top: 40%;
     left: 45%;

@@ -1,11 +1,11 @@
-.searchImg {
+.header__search__img {
     position: relative;
     left: 20%;
     top: 9px;
     max-width: 100%;
 }
 
-.cartImg {
+.header__cart__img {
     position: relative;
     top: 10px;
     left: 10%;
@@ -13,16 +13,16 @@
     max-width: 100%;
 }
 
-#home-text {
+.header__home__text {
     position: relative;
     top: 38.5px;
     left: 14%;
     cursor: pointer;
     width: auto;
-    max-width: 10%;
+    max-width: 6%;
 }
 
-#amdin-panel-text {
+.header__amdin__panel__text {
     position: absolute;
     top: 38.5px;
     left: 80%;

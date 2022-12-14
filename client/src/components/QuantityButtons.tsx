@@ -20,7 +20,7 @@ const QuantityButtons: FC<QuantityButtonsProps> = ({
   addToCart,
 }) => {
   return (
-    <div>
+    <div className="quantity__buttons">
       <Button onClick={mapAddtoCartButton}>X</Button>
       <Button onClick={removeQuantity}>-</Button>
       {quantity}

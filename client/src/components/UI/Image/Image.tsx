@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 interface ImageProps {
-  src: string;
+  src?: string;
   alt?: string;
   width?: number;
   height?: number;
