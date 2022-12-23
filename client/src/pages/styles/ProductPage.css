@@ -1,0 +1,30 @@
+.product__page__image{
+    margin: 0 15px;
+}
+
+.product__page__tabs__list{
+    vertical-align: baseline;
+    font: inherit;
+    background-color: #d2d2d2;
+}
+
+.product__page__tabs__list__a{
+    position: relative;
+    left: 50px;
+    margin: 10px;
+}
+
+.product__page__buy__price{
+}
+
+.product__page__buy{
+    flex-direction: row;
+    align-items: center;
+    max-width: 15%;
+    padding: 16px;
+    border: 1px solid beige;
+    font-size: 24px;
+    position: absolute;
+    left: 60%;
+    top: 28%;
+}

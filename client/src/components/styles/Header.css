@@ -1,22 +1,19 @@
 .header__search__img {
     position: relative;
     left: 20%;
-    top: 9px;
     max-width: 100%;
 }
 
 .header__cart__img {
     position: relative;
-    top: 10px;
-    left: 10%;
+    left: 25%;
     cursor: pointer;
-    max-width: 100%;
 }
 
 .header__home__text {
     position: relative;
-    top: 38.5px;
-    left: 14%;
+    top: 35px;
+    left: 12%;
     cursor: pointer;
     width: auto;
     max-width: 6%;
@@ -29,4 +26,11 @@
     cursor: pointer;
     width: auto;
     max-width: 10%;
+}
+
+.search{
+    position: relative;
+    left: 20%;
+    height: 10px;
+    width: 800px;
 }

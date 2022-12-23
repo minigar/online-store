@@ -6,16 +6,6 @@
     width: 10%;
 }
 
-.admin__panel__crete__product input{
-    position: relative;
-    left: 28%;
-    padding: 7px;
-    margin-left: 10px;
-    width: 30%;
-    color: black;
-}
-
-
 .admin__panel__crete__product button {
     position: relative;
     left: 28%;
@@ -25,23 +15,23 @@
     border-radius: 6px;
 }
 
-.admin__panel__delete__prroduct input {
+.input {
     position: relative;
-    left: 30%;
+    left: 28%;
     padding: 7px;
     margin-left: 10px;
     width: 30%;
     color: black;
 }
 
-.admin__panel__delete__prroduct button {
+/* .admin__panel__delete__prroduct button {
     position: relative;
     left: 30%;
     padding: 6px;
     margin-left: 10px;
     width: 4%;
     border-radius: 6px;
-}
+} */
 
 #admin__panel__delete__prroduct__text{
     position: relative;
@@ -52,10 +42,17 @@
     width: 15%;
 }
 
-.admin__panel__crete__product label{
+.delete__by__id{
     position: relative;
-    left: 28%;
-    padding: 7px;
-    margin-left: 10px;
-    width: 30%;
+    left: 35%;
+}
+
+#delete__button{
+    position: relative;
+    left: 35%;
+}
+
+.admin__panel__delete__prroduct button{
+    position: relative;
+    left: 40%;
 }

@@ -1,15 +1,18 @@
 import React, { FC } from "react";
 import Image from "./UI/Image/Image";
-import Input from "./UI/Input/Input";
+// import Input from "./UI/Input/Input";
 import "./styles/Header.css";
 import { useNavigate } from "react-router-dom";
+import { TextField } from "@mui/material";
+import { IProduct } from './types/types';
 
 interface HeaderProps {
   searchQuery: string;
   setSearchQuery: (value: string) => void;
+  products: IProduct[]
 }
 
-const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
+const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery, products }) => {
   const navigate = useNavigate();
 
   const toApminPanel = () => {
@@ -37,14 +40,18 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
       <Image
         src={require("../images/search.png")}
         alt="Search"
-        width={30}
-        height={30}
+        width={40}
+        height={40}
         className="header__search__img"
       />
 
-      <Input
+      <TextField
+        variant="outlined"
+        size="small"
         placeholder="Serch the product by name..."
-        id="search"
+        label="Serch the product by name..."
+        color="secondary"
+        className="search"
         value={searchQuery}
         onChange={(e: any) => setSearchQuery(e.target.value)}
       />
@@ -52,8 +59,8 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
       <Image
         src={require("../images/cart.jpg")}
         alt="Cart"
-        width={30}
-        height={30}
+        width={40}
+        height={40}
         className="header__cart__img"
         onClick={toCart}
       />
