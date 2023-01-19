@@ -13,11 +13,7 @@ interface HomeProps {
   setProducts: (value: IProduct[]) => void;
 }
 
-const Home: FC<HomeProps> = ({
-  searchQuery,
-  products,
-  setProducts,
-}) => {
+const Home: FC<HomeProps> = ({ searchQuery, products, setProducts }) => {
   async function getProducts() {
     const res = await api.products.list();
     setProducts(res.data);
@@ -46,17 +42,12 @@ const Home: FC<HomeProps> = ({
       <div className="home__Ad">ТУТ МОГЛА БУТИ ВАША РЕКЛАМА!</div>
 
       {searchedProducts.length ? (
-        <div
-          className="products__wraper"
-        >
+        <div className="products__wraper">
           <List
             className="product__item__list"
             items={searchedProducts}
             renderItem={(product: IProduct) => (
-              <ProductItem
-                product={product}
-                key={product.id}
-              />
+              <ProductItem product={product} key={product.id} />
             )}
           />
         </div>
