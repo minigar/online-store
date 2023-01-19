@@ -3,3 +3,42 @@
     justify-content: center;
     color: teal
 }
+
+.home__menu__categories__list{
+    display:list-item;
+    justify-self: left;
+    border-right: 1px solid gray;
+    padding: 10px;
+}
+
+.home__menu__categories__list__item{
+    margin: 10px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    width: max-content;
+}
+
+.product__item__list{
+    flex-wrap: wrap;
+}
+
+.home{
+    max-height: 840px;
+}
+
+.home__Ad{
+    width: 1040px;
+    height: 200px;
+    position: relative;
+    left: 400px;
+    bottom: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.products__wraper{
+    width: 1040px;
+    position: relative;
+    bottom: 600px;
+    left: 400px;
+}

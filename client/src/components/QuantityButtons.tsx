@@ -8,16 +8,13 @@ interface QuantityButtonsProps {
   removeQuantity: () => void;
   addQuantity: () => void;
   product: IProduct;
-  addToCart: ({ id, name, price, quantity, imgUrl }: IProduct) => void;
 }
 
 const QuantityButtons: FC<QuantityButtonsProps> = ({
-  quantity,
   mapAddtoCartButton,
   removeQuantity,
   addQuantity,
-  product,
-  addToCart,
+  quantity,
 }) => {
   return (
     <div className="quantity__buttons">
@@ -26,17 +23,6 @@ const QuantityButtons: FC<QuantityButtonsProps> = ({
       {quantity}
       <Button onClick={addQuantity}>+</Button>
       <Button
-        onClick={() => {
-            addToCart({
-              id: product.id,
-              name: product.name,
-              price: product.price,
-              quantity,
-              imgUrl: product.imgUrl,
-            })
-            mapAddtoCartButton()
-          }
-        }
       >
         Add
       </Button>

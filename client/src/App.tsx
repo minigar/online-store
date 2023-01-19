@@ -32,9 +32,6 @@ function App() {
           searchQuery={searchQuery}
           products={products}
           setProducts={setProducts}
-          addToCart={({ id, name, price, quantity, imgUrl }: IProduct) =>
-            addToCart({ id, name, price, quantity, imgUrl })
-          }
         />
       ),
     },
@@ -50,7 +47,13 @@ function App() {
     },
     {
       path: `/products/:id`,
-      element: <ProductPage />,
+      element: (
+        <ProductPage
+          addToCart={({ id, name, price, quantity, imgUrl }: IProduct) =>
+            addToCart({ id, name, price, quantity, imgUrl })
+          }
+        />
+      ),
     },
     {
       path: "*",
