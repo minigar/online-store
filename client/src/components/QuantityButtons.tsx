@@ -1,30 +1,29 @@
+import { Button } from "@mui/material";
 import React, { FC } from "react";
-import { IProduct } from "./types/types";
-import Button from "./UI/Button/Button";
 
 interface QuantityButtonsProps {
   quantity: number;
-  mapAddtoCartButton: () => void;
   removeQuantity: () => void;
   addQuantity: () => void;
-  product: IProduct;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 const QuantityButtons: FC<QuantityButtonsProps> = ({
-  mapAddtoCartButton,
   removeQuantity,
   addQuantity,
   quantity,
+  style,
+  className,
 }) => {
   return (
-    <div className="quantity__buttons">
-      <Button onClick={mapAddtoCartButton}>X</Button>
-      <Button onClick={removeQuantity}>-</Button>
+    <div className={className}>
+      <Button style={style} onClick={removeQuantity}>
+        -
+      </Button>
       {quantity}
-      <Button onClick={addQuantity}>+</Button>
-      <Button
-      >
-        Add
+      <Button style={style} onClick={addQuantity}>
+        +
       </Button>
     </div>
   );

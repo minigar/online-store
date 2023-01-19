@@ -34,6 +34,7 @@
     bottom: 600px;
     display: flex;
     justify-content: center;
+    background-color:rgb(205, 223, 255);
 }
 
 .products__wraper{

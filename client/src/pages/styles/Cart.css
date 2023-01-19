@@ -5,19 +5,25 @@
     left: 10%;
 }
 
+.cart{
+    display: flex;
+    justify-content: center;
+}
+
 .cart__products {
-    width: 80%;
-    margin: 25px;
-    margin-left: 10%;
-    padding: 10px;
+    margin: 50px;
     border: 1px solid teal;
     border-radius: 10px;
-    min-height: 600px;
+    width: 45%;
+    min-height: 200px;
+    position: relative;
+    right: 15%;
+    top: 50px;
 }
 
 .cart__empty {
-    position: absolute;
-    top: 40%;
-    left: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: teal;
 }
