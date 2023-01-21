@@ -15,6 +15,7 @@ const ProductPage: FC<ProductPageProps> = ({ addToCart }) => {
   const [product, setProduct] = useState<IProduct>();
   const [buyButton, setBuyButton] = useState<string>('buy');
   const [buyLink, setBuyLink] = useState<string>('');
+  const [click, setClick] = useState<number>(1);
 
   async function getProductById(id: number) {
     const res = await api.products.getById(id);
@@ -52,14 +53,17 @@ const ProductPage: FC<ProductPageProps> = ({ addToCart }) => {
         <span className="product__page__buy__price">{product?.price}</span>
         <Button
           onClick={() => {
-            addToCart({
-              id: product.id,
-              name: product.name,
-              price: product.price,
-              quantity: 1,
-              imgUrl: product.imgUrl,
-            });
-            setBuyButton("✔Done")
+            setClick(click + 1)
+            if (click % 2) {
+              addToCart({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1,
+                imgUrl: product.imgUrl,
+              });
+            }
+            setBuyButton("✔ToCart")
             navigate(buyLink)
             setBuyLink('/cart')
           }}
