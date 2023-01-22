@@ -32,7 +32,7 @@ const Home: FC<HomeProps> = ({ searchQuery, products, setProducts }) => {
           className="home__menu__categories__list"
           items={menu}
           renderItem={(category) => (
-            <div className="home__menu__categories__list__item">
+            <div key={category.name} className="home__menu__categories__list__item">
               <a href={category.link}>{category.name}</a> <br />
             </div>
           )}
