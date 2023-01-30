@@ -1,14 +1,11 @@
 import { Module } from '@nestjs/common';
-import { HealthController } from './controllers/health.controller';
 import { DatabaseModule } from './data/database.module';
-import { ProductsController } from './controllers/product.controller';
-import { ProductsService } from './services/products.service';
-import { CartProductController } from './controllers/cart-products.controller';
-import { CartProductsService } from './services/cart-products.service';
+import { ControllersModule } from './controllers/controllers.module';
+import { ServiceModule } from 'src/services/services.module';
 
 @Module({
-  imports: [DatabaseModule],
-  controllers: [HealthController, ProductsController, CartProductController],
-  providers: [ProductsService, CartProductsService],
+  imports: [DatabaseModule, ControllersModule, ServiceModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

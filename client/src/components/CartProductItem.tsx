@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { IProduct } from "./types/types";
 import Image from "./UI/Image/Image";
 import "./styles/CartProductItem.css";
-import { deleteById } from "../api/helpers/cartProducts";
+// import { deleteById } from "../api/helpers/cartProducts";
 import { Button } from "@mui/material";
 import DeleteSharpIcon from "@mui/icons-material/DeleteSharp";
 import QuantityButtons from "./QuantityButtons";
@@ -17,7 +17,15 @@ const ProductItem: FC<ProductItemProps> = ({ cartProduct }) => {
   const price = cartProduct.price * quantity;
 
   const removeFromCart = (id: number) => {
-    deleteById(id);
+    const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    const index = cartProducts.findIndex(
+      (product: IProduct) => product.id === cartProduct.id
+    );
+    if (index !== -1) {
+      cartProducts.splice(index, 1);
+      localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+    }
+    // deleteById(id);
   };
 
   const addQuantity = () => setQuantity(quantity + 1);

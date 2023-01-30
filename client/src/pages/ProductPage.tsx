@@ -7,14 +7,14 @@ import Image from "../components/UI/Image/Image";
 import "./styles/ProductPage.css";
 
 interface ProductPageProps {
-  addToCart: ({ id, name, price, quantity, imgUrl }: IProduct) => void;
+  addToCart: ({ id, name, price, imgUrl }: IProduct) => void;
 }
 
 const ProductPage: FC<ProductPageProps> = ({ addToCart }) => {
   const navigate = useNavigate();
   const [product, setProduct] = useState<IProduct>();
-  const [buyButton, setBuyButton] = useState<string>('buy');
-  const [buyLink, setBuyLink] = useState<string>('');
+  const [buyButton, setBuyButton] = useState<string>("buy");
+  const [buyLink, setBuyLink] = useState<string>("");
   const [click, setClick] = useState<number>(1);
 
   async function getProductById(id: number) {
@@ -53,23 +53,22 @@ const ProductPage: FC<ProductPageProps> = ({ addToCart }) => {
         <span className="product__page__buy__price">{product?.price}</span>
         <Button
           onClick={() => {
-            setClick(click + 1)
+            setClick(click + 1);
             if (click % 2) {
               addToCart({
                 id: product.id,
                 name: product.name,
                 price: product.price,
-                quantity: 1,
                 imgUrl: product.imgUrl,
               });
             }
-            setBuyButton("✔ToCart")
-            navigate(buyLink)
-            setBuyLink('/cart')
+            setBuyButton("✔ToCart");
+            navigate(buyLink);
+            setBuyLink("/cart");
           }}
           style={{ marginLeft: "10px" }}
         >
-          <span style={{fontSize: '12px'}}>{buyButton}</span>
+          <span style={{ fontSize: "12px" }}>{buyButton}</span>
         </Button>
       </div>
     </div>
