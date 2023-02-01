@@ -9,8 +9,6 @@ import {
 } from '@nestjs/common';
 import { ProductBodyModel } from 'src/models/product';
 import { CartProductsService } from 'src/services/cart-products.service';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ProductsService } from 'src/services/products.service';
 
 @Controller('cart-products')
 export class CartProductController {
