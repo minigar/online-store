@@ -10,6 +10,7 @@ import AdminPanel from "./pages/AdminPanel";
 import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const cartProductsFromLocalStorage = JSON.parse(
@@ -85,6 +86,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUp />,
     },
   ]);
 

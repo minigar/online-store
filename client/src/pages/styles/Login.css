@@ -2,28 +2,26 @@
     max-width: max-content;
     position: relative;
     left: 700px;
-    top: 200px;
-    display: flex;
-    align-items: center;
 }
 
 .login_form{
     background-color: #303338;
     width: 400px;
-    height: 400px;
+    height: 300px;
     border-radius: 10px;
 }
 
 .login_form__text__wrapper{
-    max-height: max-content;
     height: 30px;
     display: flex;
     align-items: center;
+    position: relative;
+    top: 20px;
 }
 
 .login_form__text{
     position: relative;
-    left: 170px;
+    left: 165px;
     font-size: 24px;
 }
 
@@ -31,8 +29,8 @@
     width: 300px;
     background-color: #617566;
     position: relative;
-    left: 45px;
-    top: 80px;
+    left: 13%;
+    top: 40px;
     border-radius: 10px;
 }
 
@@ -40,5 +38,5 @@
     border-radius: 10px;
     position: relative;
     left: 40%;
-    top: 80px;
+    top: 40px;
 }
