@@ -46,6 +46,7 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery, products }) => {
       />
 
       <TextField
+        type="search"
         variant="outlined"
         size="small"
         placeholder="Serch the product by name..."

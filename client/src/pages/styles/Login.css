@@ -1,0 +1,44 @@
+.login_form__wrapper{
+    max-width: max-content;
+    position: relative;
+    left: 700px;
+    top: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.login_form{
+    background-color: #303338;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.login_form__text__wrapper{
+    max-height: max-content;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.login_form__text{
+    position: relative;
+    left: 170px;
+    font-size: 24px;
+}
+
+.login_form__input{
+    width: 300px;
+    background-color: #617566;
+    position: relative;
+    left: 45px;
+    top: 80px;
+    border-radius: 10px;
+}
+
+.login_button{
+    border-radius: 10px;
+    position: relative;
+    left: 40%;
+    top: 80px;
+}
