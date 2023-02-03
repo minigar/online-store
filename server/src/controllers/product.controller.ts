@@ -8,6 +8,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { Public } from 'src/common/decorators ';
 import { ProductBodyModel } from 'src/models/product';
 import { ProductsService } from 'src/services/products.service';
 
@@ -15,11 +16,13 @@ import { ProductsService } from 'src/services/products.service';
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
+  @Public()
   @Get()
   async getList() {
     return await this.productsService.getList();
   }
 
+  @Public()
   @Get(':id')
   async getById(@Param('id', ParseIntPipe) id: number) {
     return await this.productsService.getById(id);

@@ -23,21 +23,23 @@ export class UsersService {
   }
 
   async create({ name, email, password }: UserBodyModel) {
-    const user = await this.db.user.findFirst({ where: { email } });
+    //   const user = await this.db.user.findFirst({ where: { email } });
 
-    if (user) {
-      throw HttpError('This email aready exists!');
-    }
+    //   if (user) {
+    //     throw HttpError('This email aready exists!');
+    //   }
 
-    const createdUser = await this.db.user.create({
-      data: {
-        name,
-        email,
-        password,
-      },
-    });
+    //   const createdUser = await this.db.user.create({
+    //     data: {
+    //       name,
+    //       email,
+    //       password,
+    //       hash,
+    //     },
+    //   });
 
-    return createdUser;
+    //   return createdUser;
+    return;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

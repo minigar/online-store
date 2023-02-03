@@ -6,6 +6,7 @@ import { ServiceModule } from 'src/services/services.module';
 import { ProductsController } from './product.controller';
 import { CartProductController } from './cart-products.controller';
 import { UsersController } from './users.controller';
+import { AuthController } from './auth.controller';
 
 @Module({
   imports: [ConfigModule, DatabaseModule, ServiceModule],
@@ -14,6 +15,7 @@ import { UsersController } from './users.controller';
     ProductsController,
     CartProductController,
     UsersController,
+    AuthController,
   ],
 })
 export class ControllersModule {}

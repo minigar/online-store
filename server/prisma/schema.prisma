@@ -8,7 +8,8 @@ datasource db {
 }
 
 model Product {
-  id       Int    @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
   name     String @unique
   price    Int
   quantity Int
@@ -20,13 +21,39 @@ model Product {
 }
 
 model CartProduct {
-  id       Int    @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
   name     String @unique
   price    Int
-  quantity Int  @default(1)
+  quantity Int    @default(1)
 
   imgUrl String @default("https://content2.rozetka.com.ua/goods/images/big/61936672.jpg")
 
+  User   User? @relation(fields: [userId], references: [id])
+  userId Int?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model User {
+  id Int @id @default(autoincrement())
+
+  name         String
+  email        String        @unique
+  password     String
+  role         Role          @default(USER)
+  isAdmin      Boolean       @default(false)
+  cartProducts CartProduct[]
+  hashedRT       String?
+
+  @@map("users")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
 }

@@ -1,11 +1,10 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class UserBodyModel {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name?: string;
 
-  @IsNumber()
   @IsNotEmpty()
   @IsEmail()
   email: string;

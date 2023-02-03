@@ -1,0 +1,22 @@
+services:
+    db:
+        image: postgres
+        container_name: postgres
+
+        ports:
+            - "5432:5432"
+
+        env_file:
+            - ./.env
+
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: admin
+            POSTGRES_DB: online-store
+
+        volumes:
+            - /var/db/postgres/online-store
+
+volumes:
+    postgres:
+        name: db
