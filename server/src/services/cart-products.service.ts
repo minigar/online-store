@@ -45,7 +45,13 @@ export class CartProductsService {
     return updatedProduct;
   }
 
-  async create(name: string, price: number, quantity: number, imgUrl: string) {
+  async create(
+    name: string,
+    price: number,
+    quantity: number,
+    imgUrl: string,
+    userId: number,
+  ) {
     const cartProduct = await this.db.cartProduct.findFirst({
       where: { name },
     });
@@ -55,7 +61,7 @@ export class CartProductsService {
     }
 
     await this.db.cartProduct.create({
-      data: { name, price, quantity, imgUrl },
+      data: { name, price, quantity, imgUrl, userId },
     });
 
     const createdProduct = await this.db.cartProduct.findFirst({
@@ -65,7 +71,6 @@ export class CartProductsService {
   }
 
   async deleteById(id: number) {
-    // await this.db.cartProduct.deleteMany({});
     await this.db.cartProduct.delete({ where: { id } });
     return;
   }

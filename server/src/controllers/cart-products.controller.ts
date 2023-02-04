@@ -7,6 +7,7 @@ import {
   ParseIntPipe,
   Post,
 } from '@nestjs/common';
+import { CurrentUser } from 'src/common/decorators ';
 import { ProductBodyModel } from 'src/models/product';
 import { CartProductsService } from 'src/services/cart-products.service';
 
@@ -25,8 +26,17 @@ export class CartProductController {
   }
 
   @Post()
-  async create(@Body() { name, price, quantity, imgUrl }: ProductBodyModel) {
-    return await this.cartProductsService.create(name, price, quantity, imgUrl);
+  async create(
+    @Body() { name, price, quantity, imgUrl }: ProductBodyModel,
+    @CurrentUser('userId') userId: number,
+  ) {
+    return await this.cartProductsService.create(
+      name,
+      price,
+      quantity,
+      imgUrl,
+      userId,
+    );
   }
 
   @Delete(':id')
