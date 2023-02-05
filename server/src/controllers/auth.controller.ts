@@ -9,7 +9,7 @@ import {
 import { UserBodyModel } from 'src/models/user';
 import { AuthService } from 'src/services/auth.service';
 import { Tokens } from 'src/auth/types';
-import { AccessTokenGuard, RefreshTokenGuard } from 'src/common/guards';
+import { RefreshTokenGuard } from 'src/common/guards';
 import { CurrentUser } from '../common/decorators /CurrentUser.decorator';
 import { Public } from 'src/common/decorators ';
 
@@ -29,8 +29,11 @@ export class AuthController {
   @Public()
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  async login(@Body() { email, password }: UserBodyModel): Promise<Tokens> {
-    return await this.authService.login({ email, password });
+  async login(
+    @Body('email') email: string,
+    @Body('password') password: string,
+  ): Promise<Tokens> {
+    return await this.authService.login(email, password);
   }
 
   @Post('logout')

@@ -5,12 +5,12 @@ import Header from "./components/Header";
 import { IProduct } from "./components/types/types";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-// import { api } from "./api";
 import AdminPanel from "./pages/AdminPanel";
 import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+
 
 function App() {
   const cartProductsFromLocalStorage = JSON.parse(

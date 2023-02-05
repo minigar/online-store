@@ -13,7 +13,7 @@ const SignUp = () => {
   const [errMessage, setErrMessage] = useState("");
 
   const createUser = async ({ name, email, password }: UserBodyModel) => {
-    return await api.users.create(name, email, password);
+    return await api.auth.SignUp(name, email, password);
   };
 
   useEffect(() => {
@@ -105,7 +105,13 @@ const SignUp = () => {
         </Button>
         <br />
         <br />
-        <p style={{ color: "white" }}>
+        <p
+          style={{
+            color: "white",
+            position: "relative",
+            left: "110px",
+          }}
+        >
           already have accout?
           <span>
             <a href="login">Login</a>

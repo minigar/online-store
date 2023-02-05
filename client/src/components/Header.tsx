@@ -1,18 +1,19 @@
 import React, { FC } from "react";
 import Image from "./UI/Image/Image";
-// import Input from "./UI/Input/Input";
 import "./styles/Header.css";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
-import { IProduct } from './types/types';
+import { IProduct } from "./types/types";
 
 interface HeaderProps {
   searchQuery: string;
   setSearchQuery: (value: string) => void;
-  products: IProduct[]
+  products: IProduct[];
 }
 
 const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery, products }) => {
+  const isAuth = JSON.parse(localStorage.getItem("isAuth"));
+
   const navigate = useNavigate();
 
   const toApminPanel = () => {
@@ -29,13 +30,34 @@ const Header: FC<HeaderProps> = ({ searchQuery, setSearchQuery, products }) => {
 
   return (
     <header className="header">
+      {isAuth === true ? (
+        <h2
+          className="logout__text"
+          onClick={() => {
+            localStorage.removeItem("access_token");
+            localStorage.setItem("isAuth", "false");
+            navigate("/");
+            window.location.reload();
+          }}
+        >
+          Logout
+        </h2>
+      ) : (
+        <h2 className="logout__text" onClick={() => {
+          navigate('/login')
+        }}>Login</h2>
+      )}
+
       <h2 className="header__home__text" onClick={toHome}>
         HOME
       </h2>
-
-      <h2 className="header__amdin__panel__text" onClick={toApminPanel}>
-        Admin Panel
-      </h2>
+      {isAuth === true ? (
+        <h2 className="header__amdin__panel__text" onClick={toApminPanel}>
+          Admin Panel
+        </h2>
+      ) : (
+        ""
+      )}
 
       <Image
         src={require("../images/search.png")}

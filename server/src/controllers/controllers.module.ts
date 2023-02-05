@@ -4,7 +4,6 @@ import { DatabaseModule } from '../data/database.module';
 import { HealthController } from './health.controller';
 import { ServiceModule } from 'src/services/services.module';
 import { ProductsController } from './product.controller';
-import { CartProductController } from './cart-products.controller';
 import { UsersController } from './users.controller';
 import { AuthController } from './auth.controller';
 
@@ -13,7 +12,6 @@ import { AuthController } from './auth.controller';
   controllers: [
     HealthController,
     ProductsController,
-    CartProductController,
     UsersController,
     AuthController,
   ],

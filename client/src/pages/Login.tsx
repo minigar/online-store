@@ -1,11 +1,20 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import "./styles/Login.css";
+import { api } from "../api";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [errMessage, setErrMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (email: string, password: string) => {
+    return (await api.auth.login(email, password)).data;
+  };
 
   return (
     <div className="login_form__wrapper">
@@ -20,6 +29,7 @@ const Login = () => {
           label="Email"
           className="login_form__input"
           placeholder="Email"
+          type="email"
           variant="outlined"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
@@ -41,9 +51,27 @@ const Login = () => {
         <br />
         <br />
         <br />
-        <Button className="login_button" variant="outlined" color="success">
+        <Button
+          className="login_button"
+          variant="outlined"
+          color="success"
+          onClick={async () => {
+            await onSubmit(email, password);
+            navigate("/");
+          }}
+        >
           Log In
         </Button>
+        <div
+          style={{
+            color: "white",
+            position: "relative",
+            top: "50px",
+            left: "110px",
+          }}
+        >
+          don't have account? <a href="/sign-up">create</a>
+        </div>
       </form>
     </div>
   );

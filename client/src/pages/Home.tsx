@@ -14,15 +14,16 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ searchQuery, products, setProducts }) => {
+  const isAuth = JSON.parse(localStorage.getItem("isAuth"));
   async function getProducts() {
     const res = await api.products.list();
-    setProducts(res.data);
+    return setProducts(res.data);
   }
 
   useEffect(() => {
     getProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [products]);
+  }, [products.length, isAuth]);
 
   const searchedProducts = useProducts(products, searchQuery);
   return (
@@ -32,7 +33,10 @@ const Home: FC<HomeProps> = ({ searchQuery, products, setProducts }) => {
           className="home__menu__categories__list"
           items={menu}
           renderItem={(category) => (
-            <div key={category.name} className="home__menu__categories__list__item">
+            <div
+              key={category.name}
+              className="home__menu__categories__list__item"
+            >
               <a href={category.link}>{category.name}</a> <br />
             </div>
           )}

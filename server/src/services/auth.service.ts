@@ -36,8 +36,8 @@ export class AuthService {
     return tokens;
   }
 
-  async login({ email, password }: UserBodyModel): Promise<Tokens> {
-    const user = await this.db.user.findFirst({
+  async login(email: string, password: string): Promise<Tokens> {
+    const user = await this.db.user.findUnique({
       where: { email },
     });
 
