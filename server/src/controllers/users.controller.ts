@@ -1,14 +1,6 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-} from '@nestjs/common';
-import { UserBodyModel } from 'src/models/user';
+import { Controller, Delete, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { UsersService } from 'src/services/users.service';
+import { Public } from '../common/decorators /Public.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -19,15 +11,10 @@ export class UsersController {
     return await this.usersService.getList();
   }
 
+  @Public()
   @Get(':id')
   async getById(@Param('id', ParseIntPipe) id: number) {
     return await this.usersService.getById(id);
-  }
-
-  @Post()
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async create(@Body() { name, email, password }: UserBodyModel) {
-    return await this.usersService.create({ name, email, password });
   }
 
   @Delete(':id')

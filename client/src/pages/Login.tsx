@@ -1,10 +1,15 @@
 import { Button, TextField } from "@mui/material";
-import React from "react";
+import { useState } from "react";
 import "./styles/Login.css";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMessage, setErrMessage] = useState("");
+
   return (
     <div className="login_form__wrapper">
+      <p>{errMessage}</p>
       <form action="post" className="login_form">
         <div className="login_form__text__wrapper">
           <span className="login_form__text">Log In</span>
@@ -16,6 +21,8 @@ const Login = () => {
           className="login_form__input"
           placeholder="Email"
           variant="outlined"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
         <br />
         <br />
@@ -28,6 +35,8 @@ const Login = () => {
           placeholder="Password"
           variant="outlined"
           type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
         <br />
         <br />
