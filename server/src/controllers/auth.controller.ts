@@ -38,12 +38,13 @@ export class AuthController {
 
   @Post('logout')
   @HttpCode(HttpStatus.OK)
-  async logout(@CurrentUser('userId') userId) {
+  async logout(@CurrentUser() { userId }) {
     return await this.authService.logout(userId);
   }
 
   @UseGuards(RefreshTokenGuard)
   @Post('refresh')
+  @HttpCode(HttpStatus.OK)
   async refresh(@CurrentUser() { userId, refreshToken }): Promise<Tokens> {
     return await this.authService.refresh(userId, refreshToken);
   }

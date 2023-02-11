@@ -56,13 +56,17 @@ export class AuthService {
     return tokens;
   }
 
-  async logout(id: number) {
-    const user = await this.db.user.findFirst({ where: { id } });
+  async logout(userId: number) {
+    const user = await this.db.user.findFirst({ where: { id: userId } });
 
     if (!user) throw new ForbiddenException('User not found check your email!');
 
+    if (user.hashedRT === null) {
+      throw new ForbiddenException('User have no hashedRt');
+    }
+
     await this.db.user.updateMany({
-      where: { id },
+      where: { id: userId },
       data: { hashedRT: null },
     });
 
