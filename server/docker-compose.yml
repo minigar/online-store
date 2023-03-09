@@ -1,15 +1,13 @@
 services:
-    db:
+    postgres:
         image: postgres
         container_name: postgres
+        restart: always
 
         ports:
             - "5432:5432"
 
-        env_file:
-            - ./.env
-
-        environment:
+        environment :
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: admin
             POSTGRES_DB: online-store

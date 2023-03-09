@@ -13,6 +13,8 @@
 
 # COPY . .
 
+# RUN npx prisma generate
+
 # RUN yarn build
 
 # FROM node:16-alpine
@@ -25,6 +27,6 @@
 # COPY --from=builder /app/dist ./dist
 # COPY --from=builder /app/prisma ./prisma
 
-# EXPOSE 3000
+# EXPOSE 3001
 
 # CMD [ "yarn", "start:migrate"]
